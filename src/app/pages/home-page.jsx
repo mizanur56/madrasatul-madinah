@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
-import { homePageContent } from "../content/page-content";
-import ApplyBanner from "../common/ApplyBanner";
+import { homePageContent } from "../data/page-content";
+import ApplyBanner from "../components/ApplyBanner";
 
 const HomePage = () => {
   const { title, intro, sections, importantNotes } = homePageContent;

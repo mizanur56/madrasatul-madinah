@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 const SiteFooter = () => {
   const year = new Date().getFullYear();
 
@@ -20,14 +18,6 @@ const SiteFooter = () => {
       </div>
     </footer>
   );
-};
-
-SiteFooter.propTypes = {
-  hotline: PropTypes.shape({
-    display: PropTypes.string.isRequired,
-    dial: PropTypes.string.isRequired,
-  }).isRequired,
-  applicationUrl: PropTypes.string.isRequired,
 };
 
 export default SiteFooter;

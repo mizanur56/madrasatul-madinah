@@ -2,7 +2,7 @@ export const navigationItems = [
   { label: "মূল পাতা", href: "/" },
   {
     label: "অভিভাবকের নিয়মাবলী",
-
+    href: "/অভিভাবকের-নিয়মাবলী/মক্তব-বিভাগ",
     children: [
       {
         label: "মক্তব বিভাগ",

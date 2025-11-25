@@ -12,7 +12,7 @@ import React from "react";
 const ApplyBanner = () => {
   return (
     <section className="">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
         <div className="bg-[#F6F9FF] rounded-sm p-6 sm:p-8 md:p-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
           {/* LEFT: content */}
           <div className="flex-1 w-full">
@@ -25,9 +25,7 @@ const ApplyBanner = () => {
             </h1>
 
             <div className="text-sm sm:text-base md:text-lg text-[#0f172a] space-y-1 sm:space-y-2 mb-3 max-w-xl">
-              <p>
-                মাদরাসাতুল মাদীনাহ এ- সকল বিভাগের নতুন শিক্ষার্থীদের
-              </p>
+              <p>মাদরাসাতুল মাদীনাহ এ- সকল বিভাগের নতুন শিক্ষার্থীদের</p>
               <p>অনলাইন দাখেলার আবেদনপত্র</p>
             </div>
 
