@@ -6,7 +6,7 @@ import {
   maktabRulesContent,
   kitabRulesContent,
   admissionApplicationContent,
-} from "../data/page-content.js";
+} from "../data/page-content";
 
 const router = createBrowserRouter([
   {

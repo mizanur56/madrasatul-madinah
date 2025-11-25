@@ -1,14 +1,3 @@
-import React from "react";
-
-/**
- * Usage:
- * 1. Ensure Tailwind is set up in your project.
- * 2. Put the uploaded screenshot file at the path the dev told:
- *    /mnt/data/Screenshot 2025-11-24 21411.png
- *    (Your environment will convert that path to a URL.)
- * 3. Import and use <HeroBanner /> in a page.
- */
-
 const ApplyBanner = () => {
   return (
     <section className="">

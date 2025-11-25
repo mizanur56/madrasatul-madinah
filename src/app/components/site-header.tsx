@@ -1,14 +1,22 @@
 import { Link, useLocation } from "react-router-dom";
-import PropTypes from "prop-types";
+import type { NavigationItem } from "../data/admission-content";
 
-const SiteHeader = ({ navItems, contactNumber }) => {
+type SiteHeaderProps = {
+  navItems: NavigationItem[];
+  contactNumber: {
+    display: string;
+    dial: string;
+  };
+};
+
+const SiteHeader = ({ navItems, contactNumber }: SiteHeaderProps) => {
   const location = useLocation();
 
-  const isActiveRoute = (path) => {
+  const isActiveRoute = (path: string): boolean => {
     return location.pathname === path;
   };
 
-  const getActiveNavIndex = () => {
+  const getActiveNavIndex = (): number => {
     const currentPath = location.pathname;
     const decodedPath = decodeURIComponent(currentPath);
 
@@ -38,7 +46,7 @@ const SiteHeader = ({ navItems, contactNumber }) => {
     return 0;
   };
 
-  const getActiveChildLabel = () => {
+  const getActiveChildLabel = (): string => {
     const currentPath = location.pathname;
     const decodedPath = decodeURIComponent(currentPath);
 
@@ -146,25 +154,6 @@ const SiteHeader = ({ navItems, contactNumber }) => {
       </div>
     </header>
   );
-};
-
-SiteHeader.propTypes = {
-  navItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      children: PropTypes.arrayOf(
-        PropTypes.shape({
-          label: PropTypes.string.isRequired,
-          href: PropTypes.string.isRequired,
-        })
-      ),
-    })
-  ).isRequired,
-  contactNumber: PropTypes.shape({
-    display: PropTypes.string.isRequired,
-    dial: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default SiteHeader;

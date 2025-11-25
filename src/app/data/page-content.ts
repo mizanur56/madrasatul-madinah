@@ -1,5 +1,54 @@
+export type NestedSubsection = {
+  title: string
+  items: string[]
+}
+
+export type NestedSectionItem = {
+  type: "nested"
+  label: string
+  subsections: NestedSubsection[]
+}
+
+export type SectionItem = string | NestedSectionItem
+
+export type RuleSection = {
+  heading: string
+  items: SectionItem[]
+}
+
+export type RuleContent = {
+  title: string
+  intro: {
+    main: string
+    sub: string
+  }
+  sections: RuleSection[]
+}
+
+export type HomePageContent = {
+  title: string
+  intro: string
+  sections: {
+    maktab: {
+      title: string
+      classes: { label: string; requirements: string[] }[]
+    }
+    kitab: {
+      title: string
+      groups: { label: string; requirements: string[] }[]
+    }
+  }
+  importantNotes: string[]
+  onlineAdmission: {
+    title: string
+    subtitle: string
+    description: string
+    status: string
+  }
+}
+
 // Home Page Content (মূল পাতা)
-export const homePageContent = {
+export const homePageContent: HomePageContent = {
   title: "দাখেলা সংক্রান্ত তথ্য",
   intro:
     "মক্তব বিভাগের প্রথম শ্রেণী ও দ্বিতীয় শ্রেণীতে এবং কিতাব বিভাগের শুধু প্রথম বর্ষে নতুনদের দাখেলা গ্রহণ করা হয়।",
@@ -62,7 +111,7 @@ export const homePageContent = {
 };
 
 // Maktab Division Rules (মক্তব বিভাগ)
-export const maktabRulesContent = {
+export const maktabRulesContent: RuleContent = {
   title: "মক্তব বিভাগ",
   intro: {
     main: "বিসমিল্লাহির রহমানির রহীম",
@@ -191,7 +240,7 @@ export const maktabRulesContent = {
 };
 
 // Kitab Division Rules (কিতাব বিভাগ)
-export const kitabRulesContent = {
+export const kitabRulesContent: RuleContent = {
   title: "কিতাব বিভাগ",
   intro: {
     main: "বিসমিল্লাহির রহমানির রহীম",
@@ -309,7 +358,7 @@ export const kitabRulesContent = {
 };
 
 // Admission Application Rules (দাখেলার আবেদন)
-export const admissionApplicationContent = {
+export const admissionApplicationContent: RuleContent = {
   title: "দাখেলার আবেদন",
   intro: {
     main: "বিসমিল্লাহির রহমানির রহীম",

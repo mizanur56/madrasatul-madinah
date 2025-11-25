@@ -1,8 +1,15 @@
-import PropTypes from "prop-types";
 import ApplyBanner from "./ApplyBanner";
+import type { RuleContent, SectionItem, NestedSectionItem } from "../data/page-content";
 
-const RulesPage = ({ content }) => {
-  // console.log(content);
+type RulesPageProps = {
+  content: RuleContent;
+};
+
+const isNestedItem = (item: SectionItem): item is NestedSectionItem => {
+  return typeof item === "object" && "type" in item && item.type === "nested";
+};
+
+const RulesPage = ({ content }: RulesPageProps) => {
   const { title, intro, sections } = content;
 
   return (
@@ -22,8 +29,7 @@ const RulesPage = ({ content }) => {
               </h3>
               <ul className="space-y-2">
                 {section?.items.map((item, itemIdx) => {
-                  // Check if item is nested structure
-                  if (typeof item === "object" && item?.type === "nested") {
+                  if (isNestedItem(item)) {
                     return (
                       <li key={itemIdx} className="space-y-3 ">
                         <div className="flex items-start gap-2 text-[#1B1B1B]">
@@ -89,31 +95,6 @@ const RulesPage = ({ content }) => {
       )}
     </div>
   );
-};
-
-RulesPage.propTypes = {
-  content: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    intro: PropTypes.shape({
-      main: PropTypes.string.isRequired,
-      sub: PropTypes.string.isRequired,
-    }).isRequired,
-    sections: PropTypes.arrayOf(
-      PropTypes.shape({
-        heading: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf(
-          PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.shape({
-              type: PropTypes.string,
-              label: PropTypes.string,
-              subsections: PropTypes.array,
-            }),
-          ])
-        ).isRequired,
-      })
-    ).isRequired,
-  }).isRequired,
 };
 
 export default RulesPage;

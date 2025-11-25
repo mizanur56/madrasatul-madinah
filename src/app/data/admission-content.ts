@@ -1,4 +1,15 @@
-export const navigationItems = [
+export type NavigationChild = {
+  label: string
+  href: string
+}
+
+export type NavigationItem = {
+  label: string
+  href: string
+  children?: NavigationChild[]
+}
+
+export const navigationItems: NavigationItem[] = [
   { label: "মূল পাতা", href: "/" },
   {
     label: "অভিভাবকের নিয়মাবলী",
@@ -15,12 +26,20 @@ export const navigationItems = [
     ],
   },
   { label: "দাখেলার আবেদন", href: "/দাখেলার-আবেদন" },
-];
+]
 
-export const contactDetails = {
+export interface ContactDetails {
+  hotline: {
+    display: string
+    dial: string
+  }
+  applicationUrl: string
+}
+
+export const contactDetails: ContactDetails = {
   hotline: {
     display: "০১৮৫৫৯৪৮১০৬",
     dial: "01855948106",
   },
   applicationUrl: "https://mimalmadinah.com",
-};
+}
